@@ -1,149 +1,773 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shivang | Photographer & Filmmaker</title>
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Shivang — Photographer, Filmmaker and Visual Storyteller. Portraits, fashion, product photography and cinematic films.">
+
+  <title>Shivang — Photographer & Visual Storyteller</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #10100f;
-      color: #f5f1e9;
-      font-family: Arial, sans-serif;
+    :root {
+      --bg: #11110f;
+      --surface: #191916;
+      --text: #f1eee7;
+      --muted: #a09d93;
+      --accent: #c8b18a;
+      --line: rgba(241, 238, 231, 0.14);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
     }
-    nav {
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 88%);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-top: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 270px;
+    }
+
+    /* NAVIGATION */
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 5;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 27px;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: #c4c0b7;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links .nav-cta {
+      border: 1px solid var(--accent);
+      padding: 11px 17px;
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 95px 0 75px;
+    }
+
+    .hero-top {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 28px 7%;
-      border-bottom: 1px solid #30302c;
+      align-items: start;
+      gap: 30px;
+      margin-bottom: 42px;
     }
-    .logo { letter-spacing: 3px; font-size: 18px; }
-    nav a {
-      color: #c8c2b7;
-      text-decoration: none;
-      margin-left: 24px;
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(55px, 8.8vw, 112px);
+      font-weight: 400;
+      line-height: 0.99;
+      letter-spacing: -3px;
+      margin-top: 20px;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-intro {
+      max-width: 280px;
+      color: var(--muted);
       font-size: 13px;
+      line-height: 1.9;
+      margin-top: 35px;
     }
-    .hero {
-      min-height: 75vh;
-      padding: 100px 7%;
+
+    .hero-image {
+      height: clamp(330px, 54vw, 620px);
+      overflow: hidden;
+      position: relative;
+      background: #24231f;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      transition: transform 1s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.58),
+        transparent 42%
+      );
+      pointer-events: none;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 25px;
+      left: 28px;
+      right: 28px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
     }
-    .tag {
-      color: #b9a783;
+
+    .hero-caption p {
+      font-size: 10px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 4px;
+    }
+
+    .hero-caption span {
       font-size: 11px;
-      margin-bottom: 25px;
+      color: #e4dfd4;
     }
-    h1 {
-      font-size: clamp(48px, 9vw, 110px);
-      line-height: .98;
-      font-weight: 400;
-      letter-spacing: -5px;
+
+    /* SELECTED WORK */
+
+    .work {
+      border-top: 1px solid var(--line);
     }
-    h1 span { color: #b9a783; }
-    .intro {
-      max-width: 440px;
-      color: #aaa69d;
-      line-height: 1.8;
-      margin-top: 30px;
-      font-size: 15px;
-    }
-    .section {
-      padding: 55px 7% 80px;
-    }
-    .section h2 {
-      font-size: 30px;
-      font-weight: 400;
-      margin-bottom: 12px;
-    }
-    .muted { color: #aaa69d; font-size: 14px; }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 42px 24px;
+    }
+
+    .work-card {
+      min-width: 0;
+    }
+
+    .work-card:nth-child(even) {
+      margin-top: 70px;
+    }
+
+    .work-image {
+      position: relative;
+      overflow: hidden;
+      background: #24231f;
+      aspect-ratio: 4 / 5;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(.2, .7, .2, 1),
+                  opacity 0.5s ease;
+    }
+
+    .work-card:hover .work-image img {
+      transform: scale(1.045);
+      opacity: 0.88;
+    }
+
+    .work-number {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: white;
+      background: rgba(17, 17, 15, 0.55);
+      padding: 7px 10px;
+    }
+
+    .work-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      padding-top: 17px;
+    }
+
+    .work-info h3 {
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 400;
+    }
+
+    .work-info p {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    /* STATEMENT */
+
+    .statement {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      padding: 105px 20px;
+      background: var(--surface);
+    }
+
+    .statement h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(34px, 6vw, 70px);
+      line-height: 1.25;
+      max-width: 850px;
+      margin: 22px auto;
+    }
+
+    .statement h2 em {
+      color: var(--accent);
+    }
+
+    .statement p {
+      max-width: 440px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about-title h2 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-top: 18px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 22px;
+    }
+
+    .specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 30px;
     }
-    .gallery img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #24231f;
+
+    .specialties span {
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #d4cfc4;
     }
+
+    /* CONTACT */
+
     .contact {
-      padding: 65px 7%;
-      border-top: 1px solid #30302c;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 105px 20px 115px;
     }
-    .contact a { color: #b9a783; }
-    footer {
-      padding: 25px 7%;
-      color: #77736b;
-      font-size: 12px;
+
+    .contact h2 {
+      font-family: var(--serif);
+      font-size: clamp(43px, 7vw, 82px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 20px 0;
     }
-    @media (max-width: 600px) {
-      nav { padding: 22px 5%; }
-      nav a { margin-left: 10px; font-size: 11px; }
-      .hero { padding: 75px 5%; }
-      h1 { letter-spacing: -2px; }
-      .section, .contact { padding-left: 5%; padding-right: 5%; }
-      .gallery { gap: 10px; }
+
+    .contact h2 em {
+      color: var(--accent);
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--accent);
+      padding: 15px 25px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer strong {
+      font-family: var(--serif);
+      color: var(--text);
+      font-size: 17px;
+      font-weight: 400;
+    }
+
+    /* REVEAL */
+
+    .reveal {
+      animation: rise-in 0.8s ease both;
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .container {
+        width: 90%;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .nav {
+        height: 70px;
+      }
+
+      .nav-links {
+        gap: 15px;
+        font-size: 9px;
+      }
+
+      .nav-links .nav-cta {
+        padding: 8px 10px;
+      }
+
+      .hero {
+        padding: 65px 0 55px;
+      }
+
+      .hero-top {
+        display: block;
+        margin-bottom: 30px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-intro {
+        margin-top: 22px;
+        max-width: 330px;
+      }
+
+      .hero-image {
+        height: 430px;
+      }
+
+      .gallery {
+        gap: 30px 13px;
+      }
+
+      .work-card:nth-child(even) {
+        margin-top: 35px;
+      }
+
+      .work-info {
+        display: block;
+      }
+
+      .work-info h3 {
+        font-size: 19px;
+      }
+
+      .work-info p {
+        text-align: left;
+        margin-top: 5px;
+        font-size: 9px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 15px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .statement {
+        padding: 75px 20px;
+      }
+
+      .contact {
+        padding: 80px 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 8px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .hero-image {
+        height: 350px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <div class="logo">SHIVANG.</div>
-    <div>
-      <a href="#work">WORK</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
+
+  <nav class="nav container">
+    <a class="logo" href="#home">SHIVANG<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#contact">Let's Talk ↗</a>
     </div>
   </nav>
 
-  <header class="hero" id="about">
-    <p class="tag">Photographer · Filmmaker · Visual Storyteller</p>
-    <h1>Frames that<br>feel like <span>stories.</span></h1>
-    <p class="intro">
-      I create photographs and films that capture real moments,
-      emotions and the beauty of everyday life.
-    </p>
-  </header>
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-top reveal">
+        <div>
+          <p class="eyebrow">Photographer · Filmmaker</p>
+          <h1>Stories told<br>through <em>light.</em></h1>
+        </div>
 
-  <section class="section" id="work">
-    <h2>Selected Frames</h2>
-    <p class="muted">A collection of moments seen through my lens.</p>
+        <p class="hero-intro">
+          Creating photographs and films that capture the feeling
+          behind every frame. Drawn to honest moments, thoughtful
+          details and visual stories that stay with you.
+        </p>
+      </div>
 
+      <div class="hero-image">
+        <img
+          src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/DSC06642.JPG"
+          alt="Photography by Shivang"
+          fetchpriority="high"
+        >
+        <div class="hero-overlay"></div>
 
-<div class="gallery">
-  <img src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/b%26w.jpeg" alt="Black and white photography">
+        <div class="hero-caption">
+          <p>Frames with feeling</p>
+          <span>Photography & Visual Stories</span>
+        </div>
+      </div>
+    </section>
 
-  <img src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/DSC06642.JPG" alt="Photography">
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A selection of my work</p>
+            <h2>Selected Frames.</h2>
+          </div>
 
-  <img src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/model.jpeg" alt="Model photography">
+          <p>
+            Different subjects. Different stories.
+            One way of seeing the world.
+          </p>
+        </div>
 
-  <img src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/shoes.JPG" alt="Footwear photography">
-</div>
+        <div class="gallery">
 
+          <article class="work-card">
+            <div class="work-image">
+              <img
+                src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/b%26w.jpeg"
+                alt="Black and white photography by Shivang"
+                loading="lazy"
+              >
+              <span class="work-number">01 / 05</span>
+            </div>
+            <div class="work-info">
+              <h3>Quiet Tones</h3>
+              <p>Black & White</p>
+            </div>
+          </article>
 
-   
-  </section>
+          <article class="work-card">
+            <div class="work-image">
+              <img
+                src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/model.jpeg"
+                alt="Model portrait photography by Shivang"
+                loading="lazy"
+              >
+              <span class="work-number">02 / 05</span>
+            </div>
+            <div class="work-info">
+              <h3>In Focus</h3>
+              <p>Portraits</p>
+            </div>
+          </article>
 
-  <section class="contact" id="contact">
-    <p class="tag">Have a story to tell?</p>
-    <h2>Let's create something meaningful.</h2>
-    <p class="muted">For photography, films and collaborations.</p>
-    <p style="margin-top:22px">
-      <a href="mailto:YOUR_EMAIL@example.com">Get in touch ↗</a>
-    </p>
-  </section>
+          <article class="work-card">
+            <div class="work-image">
+              <img
+                src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/shoes.JPG"
+                alt="Footwear product photography by Shivang"
+                loading="lazy"
+              >
+              <span class="work-number">03 / 05</span>
+            </div>
+            <div class="work-info">
+              <h3>Form & Detail</h3>
+              <p>Product Photography</p>
+            </div>
+          </article>
 
-  <footer>© 2026 Shivang. Photography & Films.</footer>
+          <article class="work-card">
+            <div class="work-image">
+              <img
+                src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/IMG_2676.JPG"
+                alt="Photography portfolio frame by Shivang"
+                loading="lazy"
+              >
+              <span class="work-number">04 / 05</span>
+            </div>
+            <div class="work-info">
+              <h3>Unscripted</h3>
+              <p>Visual Stories</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-image">
+              <img
+                src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/DSC06642.JPG"
+                alt="Selected photographic frame by Shivang"
+                loading="lazy"
+              >
+              <span class="work-number">05 / 05</span>
+            </div>
+            <div class="work-info">
+              <h3>Through My Lens</h3>
+              <p>Photography</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <p class="eyebrow">The philosophy</p>
+      <h2>Not just what we see.<br><em>What we feel.</em></h2>
+      <p>
+        Every frame has a mood, every detail has a purpose,
+        and every story deserves to be told with intention.
+      </p>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="about-grid">
+        <div class="about-title">
+          <p class="eyebrow">A little about me</p>
+          <h2>Behind<br>the <em>lens.</em></h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I'm Shivang, a photographer and filmmaker passionate
+            about creating thoughtful visual stories. I look for
+            the small details, the natural moments and the light
+            that makes an ordinary scene feel extraordinary.
+          </p>
+
+          <p>
+            My approach combines a cinematic eye with a clean,
+            considered visual style — creating work that feels
+            personal, timeless and true to its subject.
+          </p>
+
+          <div class="specialties">
+            <span>Portraits</span>
+            <span>Fashion</span>
+            <span>Product</span>
+            <span>Films</span>
+            <span>Visual Storytelling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow">Have a story in mind?</p>
+      <h2>Let's create<br>something <em>meaningful.</em></h2>
+      <p>For photography, films and creative collaborations.</p>
+
+      <a class="button" href="mailto:YOUR_EMAIL@example.com">
+        Start a conversation ↗
+      </a>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <strong>SHIVANG.</strong>
+    <span>Photography & Films · © 2026</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
 </body>
 </html>
-```
