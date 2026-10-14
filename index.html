@@ -546,18 +546,34 @@
     }
 
     @media (max-width: 400px) {
-      .nav-links {
-        gap: 10px;
-      }
+   .nav {
+  gap: 6px;
+}
+
+.nav-links {
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.nav-links a {
+  font-size: 8px;
+}
+
+.nav-links .nav-cta {
+  padding: 6px 7px;
+  white-space: nowrap;
+}
 
       .nav-links a {
         font-size: 8px;
       }
 
-      .logo {
-        font-size: 23px;
-      }
-
+     .logo {
+  font-size: 17px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
       .hero-image {
         height: 350px;
       }
