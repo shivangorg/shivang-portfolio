@@ -1,0 +1,140 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivang | Photographer & Filmmaker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #10100f;
+      color: #f5f1e9;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 7%;
+      border-bottom: 1px solid #30302c;
+    }
+    .logo { letter-spacing: 3px; font-size: 18px; }
+    nav a {
+      color: #c8c2b7;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 13px;
+    }
+    .hero {
+      min-height: 75vh;
+      padding: 100px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tag {
+      color: #b9a783;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 25px;
+    }
+    h1 {
+      font-size: clamp(48px, 9vw, 110px);
+      line-height: .98;
+      font-weight: 400;
+      letter-spacing: -5px;
+    }
+    h1 span { color: #b9a783; }
+    .intro {
+      max-width: 440px;
+      color: #aaa69d;
+      line-height: 1.8;
+      margin-top: 30px;
+      font-size: 15px;
+    }
+    .section {
+      padding: 55px 7% 80px;
+    }
+    .section h2 {
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .muted { color: #aaa69d; font-size: 14px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #24231f;
+    }
+    .contact {
+      padding: 65px 7%;
+      border-top: 1px solid #30302c;
+    }
+    .contact a { color: #b9a783; }
+    footer {
+      padding: 25px 7%;
+      color: #77736b;
+      font-size: 12px;
+    }
+    @media (max-width: 600px) {
+      nav { padding: 22px 5%; }
+      nav a { margin-left: 10px; font-size: 11px; }
+      .hero { padding: 75px 5%; }
+      h1 { letter-spacing: -2px; }
+      .section, .contact { padding-left: 5%; padding-right: 5%; }
+      .gallery { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">SHIVANG.</div>
+    <div>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="about">
+    <p class="tag">Photographer · Filmmaker · Visual Storyteller</p>
+    <h1>Frames that<br>feel like <span>stories.</span></h1>
+    <p class="intro">
+      I create photographs and films that capture real moments,
+      emotions and the beauty of everyday life.
+    </p>
+  </header>
+
+  <section class="section" id="work">
+    <h2>Selected Frames</h2>
+    <p class="muted">A collection of moments seen through my lens.</p>
+
+    <div class="gallery">
+      <img src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/DSC06642.JPG"
+           alt="Photography portfolio image">
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="tag">Have a story to tell?</p>
+    <h2>Let's create something meaningful.</h2>
+    <p class="muted">For photography, films and collaborations.</p>
+    <p style="margin-top:22px">
+      <a href="mailto:YOUR_EMAIL@example.com">Get in touch ↗</a>
+    </p>
+  </section>
+
+  <footer>© 2026 Shivang. Photography & Films.</footer>
+</body>
+</html>
+```
