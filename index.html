@@ -570,7 +570,153 @@
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
-    }
+    } 
+/* RESPONSIVE SPACING FIX */
+@media (max-width: 700px) {
+  .container {
+    width: 92%;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .nav {
+    height: 64px;
+  }
+
+  .hero {
+    padding: 38px 0 35px;
+  }
+
+  .hero-top {
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 11vw, 64px);
+    line-height: 1.02;
+    margin-top: 12px;
+    letter-spacing: -1px;
+  }
+
+  .hero-intro {
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  .hero-image {
+    height: min(110vw, 480px);
+  }
+
+  .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(32px, 8vw, 44px);
+    margin-top: 8px;
+  }
+
+  .gallery {
+    gap: 26px 12px;
+  }
+
+  .work-card:nth-child(even) {
+    margin-top: 24px;
+  }
+
+  .work-image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .work-info {
+    padding-top: 10px;
+  }
+
+  .work-info h3 {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .work-info p {
+    font-size: 8px;
+    margin-top: 4px;
+  }
+
+  .statement {
+    padding: 55px 18px;
+  }
+
+  .about-grid {
+    gap: 22px;
+  }
+
+  .about-title h2 {
+    font-size: 43px;
+    margin-top: 10px;
+  }
+
+  .about-copy p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  .specialties {
+    gap: 7px;
+    margin-top: 20px;
+  }
+
+  .specialties span {
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+
+  .contact {
+    padding: 60px 18px;
+  }
+
+  .contact h2 {
+    font-size: clamp(38px, 9vw, 54px);
+    margin: 14px 0;
+  }
+
+  .footer {
+    padding: 20px 0;
+    flex-wrap: wrap;
+    font-size: 9px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links {
+    gap: 9px;
+  }
+
+  .nav-links a {
+    font-size: 8px;
+  }
+
+  .nav-links .nav-cta {
+    padding: 7px 8px;
+  }
+
+  .gallery {
+    gap: 22px 10px;
+  }
+
+  .work-card:nth-child(even) {
+    margin-top: 18px;
+  }
+
+  .work-info h3 {
+    font-size: 15px;
+  }
+}
+
+    
   </style>
 </head>
 
