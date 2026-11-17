@@ -1,833 +1,149 @@
-
-<!DOCTYPE html>
+---
+layout: null
+---
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111110">
-  <meta name="description" content="Shivang Films — Photographer and Visual Storyteller. Portrait, fashion, product and cinematic photography.">
-
-  <title>SHIVANG FILMS — Photographer & Visual Storyteller</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #111110;
-      --text: #f4f0e8;
-      --muted: #aaa59a;
-      --gold: #d6b477;
-      --line: rgba(244, 240, 232, 0.15);
-      --sans: "DM Sans", Arial, sans-serif;
-      --serif: "Playfair Display", Georgia, serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(1120px, 88%);
-      margin-inline: auto;
-    }
-
-    /* NAVIGATION */
-
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .logo {
-      font-family: var(--serif);
-      font-size: 25px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      transition: color 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .nav-cta {
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 11px 18px;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding-top: 28px;
-    }
-
-    .hero-image {
-      position: relative;
-      isolation: isolate;
-      width: 100%;
-      height: clamp(560px, 65vw, 790px);
-      overflow: hidden;
-      background: #252422;
-    }
-
-    .hero-image > img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      z-index: -2;
-      transition: transform 0.8s ease;
-    }
-
-    .hero-image:hover > img {
-      transform: scale(1.015);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.78) 0%,
-        rgba(0, 0, 0, 0.40) 42%,
-        rgba(0, 0, 0, 0.04) 78%
-      );
-      pointer-events: none;
-    }
-
-    .hero-top {
-      position: absolute;
-      top: 50%;
-      left: 7%;
-      transform: translateY(-50%);
-      width: 48%;
-      max-width: 570px;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin-top: 22px;
-      font-family: var(--serif);
-      font-size: clamp(48px, 6.5vw, 88px);
-      font-weight: 400;
-      line-height: 0.98;
-      letter-spacing: -3px;
-      text-shadow: 0 3px 24px rgba(0, 0, 0, 0.45);
-    }
-
-    .hero h1 em {
-      color: var(--gold);
-      font-weight: 400;
-    }
-
-    .hero-intro {
-      max-width: 390px;
-      margin-top: 24px;
-      color: #f2eee7;
-      font-size: 14px;
-      line-height: 1.9;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero-caption {
-      position: absolute;
-      z-index: 2;
-      left: 7%;
-      right: 7%;
-      bottom: 25px;
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.35);
-      padding-top: 14px;
-      color: white;
-    }
-
-    .hero-caption p {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .hero-caption span {
-      color: #f0d49e;
-      font-size: 11px;
-    }
-
-    /* SECTION HEADINGS */
-
-    .section {
-      padding: 100px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2,
-    .about h2,
-    .contact h2 {
-      margin-top: 12px;
-      font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -1px;
-    }
-
-    .section-note {
-      max-width: 250px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* GALLERY */
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 48px 24px;
-      align-items: start;
-    }
-
-    .work-card:nth-child(even) {
-      margin-top: 55px;
-    }
-
-    .work-image {
-      position: relative;
-      overflow: hidden;
-      background: #242321;
-      aspect-ratio: 4 / 5;
-    }
-
-    .work-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.65s ease;
-    }
-
-    .work-card:hover .work-image img {
-      transform: scale(1.035);
-    }
-
-    .work-number {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      padding: 5px 8px;
-      background: rgba(0, 0, 0, 0.55);
-      color: white;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-    }
-
-    .work-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 14px;
-    }
-
-    .work-info h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
-    }
-
-    .work-info span {
-      color: var(--gold);
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    /* ABOUT */
-
-    .about {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .about h2 em {
-      color: var(--gold);
-      font-weight: 400;
-    }
-
-    .about-copy {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 2;
-    }
-
-    .about-copy p + p {
-      margin-top: 18px;
-    }
-
-    .specialties {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 25px;
-    }
-
-    .specialties span {
-      border: 1px solid var(--line);
-      padding: 9px 13px;
-      color: var(--text);
-      font-size: 11px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      text-align: center;
-      padding: 110px 0;
-    }
-
-    .contact h2 {
-      margin-bottom: 20px;
-    }
-
-    .contact-copy {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border: 1px solid var(--line);
-      padding: 13px 18px;
-      font-size: 12px;
-      transition: border-color 0.25s, color 0.25s;
-    }
-
-    .social-link:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-
-    /* FOOTER */
-
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 25px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .back-top:hover {
-      color: var(--gold);
-    }
-
-    /* TABLET */
-
-    @media (max-width: 780px) {
-      .container {
-        width: 90%;
-      }
-
-      .nav {
-        min-height: 72px;
-        gap: 12px;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .nav-links {
-        gap: 14px;
-        font-size: 9px;
-        letter-spacing: 1px;
-      }
-
-      .nav-cta {
-        padding: 8px 10px;
-      }
-
-      .hero {
-        padding-top: 18px;
-      }
-
-      .hero-image {
-        height: min(145vw, 760px);
-        min-height: 560px;
-      }
-
-      .hero-image > img {
-        object-position: center 35%;
-      }
-
-      .hero-overlay {
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.02) 0%,
-          rgba(0, 0, 0, 0.08) 25%,
-          rgba(0, 0, 0, 0.42) 53%,
-          rgba(0, 0, 0, 0.88) 100%
-        );
-      }
-
-      .hero-top {
-        top: auto;
-        bottom: 95px;
-        left: 24px;
-        right: 24px;
-        width: auto;
-        max-width: 520px;
-        transform: none;
-      }
-
-      .hero h1 {
-        font-size: clamp(46px, 10vw, 72px);
-        line-height: 1;
-        letter-spacing: -1.8px;
-        margin-top: 15px;
-      }
-
-      .hero-intro {
-        max-width: 340px;
-        margin-top: 16px;
-        font-size: 13px;
-        line-height: 1.75;
-      }
-
-      .hero-caption {
-        left: 24px;
-        right: 24px;
-        bottom: 20px;
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 28px;
-      }
-
-      .gallery {
-        gap: 35px 16px;
-      }
-
-      .work-card:nth-child(even) {
-        margin-top: 28px;
-      }
-
-      .work-info {
-        align-items: start;
-        flex-direction: column;
-        gap: 3px;
-      }
-
-      .work-info h3 {
-        font-size: 17px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .contact {
-        padding: 80px 0;
-      }
-    }
-
-    /* SMALL PHONES */
-
-    @media (max-width: 420px) {
-      .logo {
-        font-size: 17px;
-      }
-
-      .nav-links {
-        gap: 9px;
-        font-size: 8px;
-      }
-
-      .nav-cta {
-        padding: 7px;
-      }
-
-      .hero-image {
-        height: 155vw;
-        min-height: 560px;
-        max-height: 720px;
-      }
-
-      .hero-image > img {
-        object-position: 43% center;
-      }
-
-      .hero-top {
-        left: 18px;
-        right: 18px;
-        bottom: 92px;
-      }
-
-      .hero h1 {
-        font-size: clamp(43px, 12vw, 56px);
-      }
-
-      .hero .eyebrow {
-        font-size: 9px;
-        letter-spacing: 2px;
-      }
-
-      .hero-intro {
-        font-size: 12px;
-        max-width: 290px;
-      }
-
-      .hero-caption {
-        left: 18px;
-        right: 18px;
-        bottom: 17px;
-      }
-
-      .hero-caption p,
-      .hero-caption span {
-        font-size: 9px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .work-card:nth-child(even) {
-        margin-top: 0;
-      }
-
-      .work-info {
-        flex-direction: row;
-        align-items: center;
-      }
-
-      .section-heading h2,
-      .about h2,
-      .contact h2 {
-        font-size: 38px;
-      }
-
-      .footer {
-        align-items: start;
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Shivang Films — Photography and visual stories.">
+<title>SHIVANG FILMS — Photography Portfolio</title>
+<style>
+:root{color-scheme:dark;--bg:#080808;--text:#f6f5f1;--muted:#a9a9a9;--top:64px}
+*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}button,a{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}button:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.header{position:fixed;z-index:90;inset:0 0 auto;height:var(--top);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px);background:linear-gradient(#080808f2,#080808d9);border-bottom:1px solid #fff2;backdrop-filter:blur(16px)}
+.logo{font-weight:800;font-size:clamp(14px,1.5vw,19px);letter-spacing:.05em;white-space:nowrap}.logo span{font-weight:400}.nav{display:flex;align-items:center;gap:clamp(22px,3vw,45px)}.nav a,.mobile-menu a{font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase}.nav a:hover,.mobile-menu a:hover{opacity:.65}.insta{display:inline-flex;align-items:center;justify-content:center}.insta svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mobile-actions{display:none;align-items:center;gap:17px}.menu-btn{border:0;color:white;background:none;padding:7px;margin-right:-7px}.menu-btn svg{width:24px;height:24px}.mobile-menu{display:none;position:fixed;z-index:80;top:var(--top);inset-inline:0;background:#141414;border-bottom:1px solid #fff3;padding:20px 6vw 26px}.mobile-menu a{display:block;padding:15px 0;font-size:15px}.menu-open .mobile-menu{display:block}
+main{padding-top:var(--top)}.gallery{width:100%;overflow:hidden}.frame{height:calc(100svh - var(--top));height:calc(100dvh - var(--top));min-height:350px;position:relative;background:#161616;display:flex;align-items:center;justify-content:center;overflow:hidden}.frame:nth-child(2n){background:#1d1d1d}.frame img{height:100%;width:100%;display:block;object-fit:contain;object-position:center;user-select:none;-webkit-user-drag:none}.frame:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,#0008);pointer-events:none}.frame button{position:absolute;inset:0;z-index:1;border:0;background:none;color:transparent;text-indent:-9999px;width:100%;height:100%}.frame-details{position:absolute;bottom:20px;left:clamp(18px,5vw,70px);right:clamp(18px,5vw,70px);z-index:2;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:10px;letter-spacing:.19em;font-weight:700;pointer-events:none;text-shadow:0 2px 6px #000a}.frame-details .instruction{font-size:9px;letter-spacing:.12em}.bad-photo{display:none;position:absolute;color:#bbb;text-align:center;font-size:12px;max-width:300px;padding:20px}.frame.failed .bad-photo{display:block}.frame.failed img{display:none}
+.empty{display:none;min-height:calc(100dvh - var(--top));place-items:center;text-align:center;padding:32px;color:#bbb}.empty p{max-width:480px;line-height:1.7}.empty code{color:#fff}
+.info{display:none;min-height:calc(100dvh - var(--top));background:#111;padding:clamp(65px,12vw,140px) clamp(22px,9vw,155px)}.info small{display:block;font-size:11px;letter-spacing:.18em;color:var(--muted);margin-bottom:28px}.info h1{font-size:clamp(50px,10vw,150px);letter-spacing:-.085em;line-height:.92;margin:0 0 65px;font-weight:800}.info h1 span{color:#999}.info-content{border-top:1px solid #fff3;padding-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1050px}.info-content p{font-size:clamp(17px,2vw,25px);line-height:1.55;margin:0;letter-spacing:-.02em}.info-links{display:flex;flex-direction:column;align-items:flex-start;gap:18px}.info-links a{border-bottom:1px solid #fff5;padding-bottom:6px;font-size:14px}.info footer{display:flex;justify-content:space-between;gap:15px;margin-top:130px;padding-top:20px;border-top:1px solid #fff3;color:var(--muted);font-size:10px;letter-spacing:.12em}
+.info-open .gallery{display:none}.info-open .info{display:block}
+.viewer{position:fixed;inset:0;z-index:200;background:#050505;display:none;align-items:center;justify-content:center;padding:55px 48px}.viewer.open{display:flex}.viewer img{max-height:100%;max-width:100%;object-fit:contain}.viewer button{position:absolute;width:44px;height:44px;background:#161616e6;color:#fff;border:1px solid #fff4}.viewer .close{right:15px;top:14px}.viewer .prev{left:10px;top:50%;transform:translateY(-50%)}.viewer .next{right:10px;top:50%;transform:translateY(-50%)}.viewer .count{position:absolute;bottom:15px;left:20px;font-size:11px;letter-spacing:.18em}.viewer-open{overflow:hidden}
+@media(max-width:700px){:root{--top:60px}.header{padding:0 18px}.nav{display:none}.mobile-actions{display:flex}.info-content{grid-template-columns:1fr;gap:40px}.info footer{margin-top:90px;flex-direction:column}.viewer{padding:65px 8px 75px}.viewer .prev,.viewer .next{top:auto;bottom:14px;transform:none}.viewer .prev{left:auto;right:71px}.viewer .next{right:15px}.frame-details{bottom:18px;left:18px;right:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
 </head>
-
 <body>
-  <header class="nav container" id="top">
-    <a class="logo" href="#home">SHIVANG FILMS<span>.</span></a>
-
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a class="nav-cta" href="#contact">Let's Talk ↗</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO: BLACK AND WHITE PORTRAIT -->
-    <section class="hero container" id="home">
-      <div class="hero-image">
-        <img
-          src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/hero-bw.jpg"
-          alt="Black and white portrait by Shivang"
-          fetchpriority="high"
-        >
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-top">
-          <p class="eyebrow">Photographer &amp; Visual Storyteller</p>
-
-          <h1>
-            Every frame.<br>
-            A <em>feeling.</em>
-          </h1>
-
-          <p class="hero-intro">
-            Creating thoughtful photographs with a cinematic eye,
-            honest moments and a timeless visual style.
-          </p>
-        </div>
-
-        <div class="hero-caption">
-          <p>Frames with feeling</p>
-          <span>Photography &amp; Visual Stories</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SELECTED WORK -->
-    <section class="section container" id="work">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">A selection of my work</p>
-          <h2>Selected Frames.</h2>
-        </div>
-
-        <p class="section-note">
-          Different subjects. Different stories.
-          One way of seeing the world.
-        </p>
-      </div>
-
-      <div class="gallery">
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/b%26w.jpeg"
-              alt="Black and white portrait photography"
-              loading="lazy"
-            >
-            <span class="work-number">01 / 05</span>
-          </div>
-          <div class="work-info">
-            <h3>Quiet Tones</h3>
-            <span>Black &amp; White</span>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/DSC06642.JPG"
-              alt="Portrait and fashion photography"
-              loading="lazy"
-            >
-            <span class="work-number">02 / 05</span>
-          </div>
-          <div class="work-info">
-            <h3>In Focus</h3>
-            <span>Portraits</span>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/shoes.JPG"
-              alt="Product photography of shoes"
-              loading="lazy"
-            >
-            <span class="work-number">03 / 05</span>
-          </div>
-          <div class="work-info">
-            <h3>Craft &amp; Detail</h3>
-            <span>Products</span>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/model.jpeg"
-              alt="Fashion model portrait"
-              loading="lazy"
-            >
-            <span class="work-number">04 / 05</span>
-          </div>
-          <div class="work-info">
-            <h3>In Her Element</h3>
-            <span>Fashion</span>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://skpiqpnqdosyugueuzks.supabase.co/storage/v1/object/public/portfolio-images/IMG_2676.JPG"
-              alt="Photography from Shivang's portfolio"
-              loading="lazy"
-            >
-            <span class="work-number">05 / 05</span>
-          </div>
-          <div class="work-info">
-            <h3>Still Moments</h3>
-            <span>Visual Stories</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section about" id="about">
-      <div class="container about-grid">
-        <div>
-          <p class="eyebrow">Behind the lens</p>
-          <h2>More than a picture.<br><em>A feeling.</em></h2>
-        </div>
-
-        <div class="about-copy">
-          <p>
-            I'm Shivang, a photographer and visual storyteller.
-            I believe a photograph should do more than capture a moment —
-            it should make you feel something.
-          </p>
-
-          <p>
-            My approach combines a cinematic eye with clean,
-            considered visual style, creating work that feels personal,
-            timeless and true to its subject.
-          </p>
-
-          <div class="specialties">
-            <span>Portraits</span>
-            <span>Fashion</span>
-            <span>Products</span>
-            <span>Films</span>
-            <span>Visual Storytelling</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact container" id="contact">
-      <p class="eyebrow">Have a story in mind?</p>
-      <h2>Let's create<br><em>something meaningful.</em></h2>
-
-      <p class="contact-copy">
-        For photography, films and creative collaborations.
-      </p>
-
-      <div class="social-links">
-        <a class="social-link" href="mailto:shimmu.017@gmail.com">
-          Email ↗
-        </a>
-
-        <a
-          class="social-link"
-          href="https://www.instagram.com/shivang.film/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram ↗
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer container">
-    <strong>SHIVANG FILMS.</strong>
-    <span>Photography &amp; Films · © 2026</span>
-    <a class="back-top" href="#top">Back to top ↑</a>
-  </footer>
+<header class="header">
+  <a class="logo" href="#home" data-page="home">SHIVANG <span>FILMS.</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#home" data-page="home">Home</a>
+    <a href="#work" data-page="work">Work</a>
+    <a href="#info" data-page="info">Info</a>
+    <a class="insta" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="18" cy="6.3" r=".8" stroke="none" fill="currentColor"/></svg></a>
+  </nav>
+  <div class="mobile-actions">
+    <a class="insta" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="18" cy="6.3" r=".8" stroke="none" fill="currentColor"/></svg></a>
+    <button class="menu-btn" id="menuButton" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#home" data-page="home">Home</a><a href="#work" data-page="work">Work</a><a href="#info" data-page="info">Info</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+</nav>
+<main>
+  <section id="work" class="gallery" aria-label="Photography portfolio">
+    <div id="cycles"></div>
+    <div id="empty" class="empty"><p>No photographs yet. Upload JPG, PNG, WebP or AVIF images into the <code>photos/</code> folder on GitHub to populate this gallery automatically.</p></div>
+  </section>
+  <section id="info" class="info" aria-label="Information and contact">
+    <small>SHIVANG FILMS / INFORMATION</small>
+    <h1>Visuals.<br><span>By Shivang.</span></h1>
+    <div class="info-content">
+      <p>Photography, films and visual stories. Available for creative projects and collaborations.</p>
+      <div class="info-links"><a href="mailto:shimmu.017@gmail.com">Email — shimmu.017@gmail.com ↗</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram — @shivang.film ↗</a><a href="#work" data-page="work">View Work ↗</a></div>
+    </div>
+    <footer><span>SHIVANG FILMS © <span id="year">2026</span></span><span>PHOTOGRAPHY &amp; VISUAL STORIES</span></footer>
+  </section>
+</main>
+<div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
+  <button class="close" id="close" aria-label="Close">✕</button><button class="prev" id="prev" aria-label="Previous photo">←</button><img id="bigImage" alt="Selected photograph"><button class="next" id="next" aria-label="Next photo">→</button><span class="count" id="viewerCount"></span>
+</div>
+<script>
+// Jekyll finds all photos automatically at build time. Alphabetical filenames control the order.
+const photos = [
+{% assign sorted_photos = site.static_files | sort: 'path' %}
+{% for photo in sorted_photos %}
+  {% assign ext = photo.extname | downcase %}
+  {% if photo.path contains '/photos/' %}
+    {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' or ext == '.avif' %}
+      { src: {{ photo.path | relative_url | jsonify }}, name: {{ photo.basename | replace: '-', ' ' | replace: '_', ' ' | jsonify }} },
+    {% endif %}
+  {% endif %}
+{% endfor %}
+];
+const wrap=document.getElementById('cycles'), empty=document.getElementById('empty');
+const viewer=document.getElementById('viewer'), big=document.getElementById('bigImage'), counter=document.getElementById('viewerCount');
+const menu=document.getElementById('menuButton');
+const pad=n=>String(n).padStart(2,'0');
+let active=0, busy=false, previousFocus=null;
+function createFrame(photo,index,copy){
+  const el=document.createElement('article');el.className='frame';
+  const image=document.createElement('img');image.src=photo.src;image.alt=photo.name||'Photograph';image.decoding='async';image.loading=(copy===0&&index===0)?'eager':'lazy';if(copy===0&&index===0)image.fetchPriority='high';
+  image.addEventListener('error',()=>el.classList.add('failed'));
+  const error=document.createElement('span');error.className='bad-photo';error.textContent='This photograph could not be loaded.';
+  const open=document.createElement('button');open.type='button';open.textContent='View photograph';open.setAttribute('aria-label','View photograph '+(index+1)+' fullscreen');open.addEventListener('click',()=>show(index));
+  const details=document.createElement('div');details.className='frame-details';
+  const number=document.createElement('span');number.textContent=pad(index+1)+' / '+pad(photos.length);
+  const hint=document.createElement('span');hint.className='instruction';hint.textContent=index===0?'SCROLL TO EXPLORE ↓':'TAP TO VIEW ↗';
+  details.append(number,hint);el.append(image,error,open,details);return el;
+}
+if(photos.length){
+  empty.style.display='none';
+  for(let i=0;i<3;i++){
+    const cycle=document.createElement('div');cycle.className='cycle';
+    photos.forEach((photo,index)=>cycle.append(createFrame(photo,index,i)));
+    wrap.append(cycle);
+  }
+}else{empty.style.display='grid';}
+// The page loops by moving the scroll position between identical copies.
+// DOM and image count stay constant, so memory doesn't grow forever.
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    ticking=false;
+    if(busy||!photos.length||document.body.classList.contains('info-open'))return;
+    const second=wrap.children[1],third=wrap.children[2];
+    if(!second||!third)return;
+    const start2=second.getBoundingClientRect().top+window.scrollY;
+    const start3=third.getBoundingClientRect().top+window.scrollY;
+    if(window.scrollY>=start3-window.innerHeight*.3){
+      busy=true;
+      window.scrollTo({top:window.scrollY-(start3-start2),behavior:'instant'});
+      requestAnimationFrame(()=>busy=false);
+    }
+  });
+},{passive:true});
+function closeMenu(){document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');}
+menu.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));});
+document.addEventListener('click',e=>{if(!e.target.closest('.mobile-menu,.menu-btn'))closeMenu();});
+function route(){
+  closeMenu();
+  const info=location.hash==='#info';document.body.classList.toggle('info-open',info);
+  window.scrollTo({top:0,behavior:'instant'});
+}
+window.addEventListener('hashchange',route);
+document.querySelectorAll('[data-page]').forEach(link=>link.addEventListener('click',e=>{if(location.hash===link.getAttribute('href')){e.preventDefault();route();}}));
+route();
+function setViewer(){big.src=photos[active].src;big.alt=photos[active].name;counter.textContent=pad(active+1)+' / '+pad(photos.length);}
+function show(index){if(!photos.length)return;active=(index+photos.length)%photos.length;previousFocus=document.activeElement;setViewer();viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('viewer-open');document.getElementById('close').focus();}
+function hide(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');big.removeAttribute('src');document.body.classList.remove('viewer-open');if(previousFocus&&previousFocus.isConnected)previousFocus.focus();}
+function move(n){active=(active+n+photos.length)%photos.length;setViewer();}
+document.getElementById('close').addEventListener('click',hide);
+document.getElementById('prev').addEventListener('click',()=>move(-1));
+document.getElementById('next').addEventListener('click',()=>move(1));
+viewer.addEventListener('click',e=>{if(e.target===viewer)hide();});
+document.addEventListener('keydown',e=>{
+  if(viewer.classList.contains('open')){
+    if(e.key==='Escape')hide();if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1);
+    if(e.key==='Tab'){
+      const buttons=[document.getElementById('close'),document.getElementById('prev'),document.getElementById('next')];const i=buttons.indexOf(document.activeElement);
+      if(e.shiftKey&&i===0){e.preventDefault();buttons[2].focus();}else if(!e.shiftKey&&i===2){e.preventDefault();buttons[0].focus();}
+    }
+  }else if(e.key==='Escape')closeMenu();
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
