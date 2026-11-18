@@ -1,149 +1,283 @@
 ---
 layout: null
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#080808">
-<meta name="description" content="Shivang Films — Photography and visual stories.">
-<title>SHIVANG FILMS — Photography Portfolio</title>
-<style>
-:root{color-scheme:dark;--bg:#080808;--text:#f6f5f1;--muted:#a9a9a9;--top:64px}
-*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}button,a{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}button:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.header{position:fixed;z-index:90;inset:0 0 auto;height:var(--top);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px);background:linear-gradient(#080808f2,#080808d9);border-bottom:1px solid #fff2;backdrop-filter:blur(16px)}
-.logo{font-weight:800;font-size:clamp(14px,1.5vw,19px);letter-spacing:.05em;white-space:nowrap}.logo span{font-weight:400}.nav{display:flex;align-items:center;gap:clamp(22px,3vw,45px)}.nav a,.mobile-menu a{font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase}.nav a:hover,.mobile-menu a:hover{opacity:.65}.insta{display:inline-flex;align-items:center;justify-content:center}.insta svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.mobile-actions{display:none;align-items:center;gap:17px}.menu-btn{border:0;color:white;background:none;padding:7px;margin-right:-7px}.menu-btn svg{width:24px;height:24px}.mobile-menu{display:none;position:fixed;z-index:80;top:var(--top);inset-inline:0;background:#141414;border-bottom:1px solid #fff3;padding:20px 6vw 26px}.mobile-menu a{display:block;padding:15px 0;font-size:15px}.menu-open .mobile-menu{display:block}
-main{padding-top:var(--top)}.gallery{width:100%;overflow:hidden}.frame{height:calc(100svh - var(--top));height:calc(100dvh - var(--top));min-height:350px;position:relative;background:#161616;display:flex;align-items:center;justify-content:center;overflow:hidden}.frame:nth-child(2n){background:#1d1d1d}.frame img{height:100%;width:100%;display:block;object-fit:contain;object-position:center;user-select:none;-webkit-user-drag:none}.frame:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,#0008);pointer-events:none}.frame button{position:absolute;inset:0;z-index:1;border:0;background:none;color:transparent;text-indent:-9999px;width:100%;height:100%}.frame-details{position:absolute;bottom:20px;left:clamp(18px,5vw,70px);right:clamp(18px,5vw,70px);z-index:2;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:10px;letter-spacing:.19em;font-weight:700;pointer-events:none;text-shadow:0 2px 6px #000a}.frame-details .instruction{font-size:9px;letter-spacing:.12em}.bad-photo{display:none;position:absolute;color:#bbb;text-align:center;font-size:12px;max-width:300px;padding:20px}.frame.failed .bad-photo{display:block}.frame.failed img{display:none}
-.empty{display:none;min-height:calc(100dvh - var(--top));place-items:center;text-align:center;padding:32px;color:#bbb}.empty p{max-width:480px;line-height:1.7}.empty code{color:#fff}
-.info{display:none;min-height:calc(100dvh - var(--top));background:#111;padding:clamp(65px,12vw,140px) clamp(22px,9vw,155px)}.info small{display:block;font-size:11px;letter-spacing:.18em;color:var(--muted);margin-bottom:28px}.info h1{font-size:clamp(50px,10vw,150px);letter-spacing:-.085em;line-height:.92;margin:0 0 65px;font-weight:800}.info h1 span{color:#999}.info-content{border-top:1px solid #fff3;padding-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1050px}.info-content p{font-size:clamp(17px,2vw,25px);line-height:1.55;margin:0;letter-spacing:-.02em}.info-links{display:flex;flex-direction:column;align-items:flex-start;gap:18px}.info-links a{border-bottom:1px solid #fff5;padding-bottom:6px;font-size:14px}.info footer{display:flex;justify-content:space-between;gap:15px;margin-top:130px;padding-top:20px;border-top:1px solid #fff3;color:var(--muted);font-size:10px;letter-spacing:.12em}
-.info-open .gallery{display:none}.info-open .info{display:block}
-.viewer{position:fixed;inset:0;z-index:200;background:#050505;display:none;align-items:center;justify-content:center;padding:55px 48px}.viewer.open{display:flex}.viewer img{max-height:100%;max-width:100%;object-fit:contain}.viewer button{position:absolute;width:44px;height:44px;background:#161616e6;color:#fff;border:1px solid #fff4}.viewer .close{right:15px;top:14px}.viewer .prev{left:10px;top:50%;transform:translateY(-50%)}.viewer .next{right:10px;top:50%;transform:translateY(-50%)}.viewer .count{position:absolute;bottom:15px;left:20px;font-size:11px;letter-spacing:.18em}.viewer-open{overflow:hidden}
-@media(max-width:700px){:root{--top:60px}.header{padding:0 18px}.nav{display:none}.mobile-actions{display:flex}.info-content{grid-template-columns:1fr;gap:40px}.info footer{margin-top:90px;flex-direction:column}.viewer{padding:65px 8px 75px}.viewer .prev,.viewer .next{top:auto;bottom:14px;transform:none}.viewer .prev{left:auto;right:71px}.viewer .next{right:15px}.frame-details{bottom:18px;left:18px;right:18px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Shivang Films — Photography & Visual Stories">
+  <title>SHIVANG FILMS — Portfolio</title>
+  <style>
+    :root { --bg:#080808; --text:#f8f8f6; --muted:#a3a3a3; --bar:68px; color-scheme:dark; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:auto; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    a:focus-visible,button:focus-visible { outline:2px solid white; outline-offset:4px; }
+
+    /* Fixed, minimal header */
+    .header { position:fixed; z-index:50; top:0; left:0; width:100%; height:var(--bar); padding:0 clamp(18px,4vw,60px); display:flex; justify-content:space-between; align-items:center; background:#080808ee; border-bottom:1px solid #ffffff22; backdrop-filter:blur(12px); }
+    .logo { font-family:Impact,'Arial Narrow',Arial,sans-serif; font-size:clamp(22px,2.5vw,32px); font-weight:900; letter-spacing:.045em; line-height:1; white-space:nowrap; }
+    .logo span { font-weight:400; }
+    .navigation { display:flex; align-items:center; gap:clamp(18px,3vw,40px); }
+    .navigation a,.mobile-menu a { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    .navigation a:hover,.mobile-menu a:hover { opacity:.65; }
+    .instagram { display:inline-flex; align-items:center; justify-content:center; }
+    .instagram svg { width:21px; height:21px; stroke:currentColor; stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .mobile-actions { display:none; align-items:center; gap:15px; }
+    .menu-button { color:white; background:transparent; border:0; padding:8px; margin-right:-8px; }
+    .menu-button svg { width:25px; height:25px; }
+    .mobile-menu { display:none; position:fixed; z-index:45; top:var(--bar); left:0; right:0; padding:18px 22px 26px; background:#101010; border-bottom:1px solid #ffffff33; }
+    .mobile-menu a { display:block; padding:15px 0; font-size:15px; }
+    .menu-open .mobile-menu { display:block; }
+
+    main { padding-top:var(--bar); }
+
+    /* Natural-size, edge-to-edge gallery: NO CROPPING, NO BLACK GAP */
+    .gallery,.cycle { margin:0; padding:0; width:100%; }
+    .frame { position:relative; width:100%; display:block; margin:0; padding:0; background:#080808; line-height:0; }
+    .frame img { display:block; width:100%; height:auto; margin:0; padding:0; object-fit:contain; }
+    .frame .photo-button { position:absolute; inset:0; z-index:1; width:100%; border:0; background:transparent; color:transparent; font-size:0; }
+    .frame .photo-count { position:absolute; bottom:clamp(12px,3vw,28px); left:clamp(16px,4vw,52px); z-index:2; font-size:10px; font-weight:bold; letter-spacing:.15em; line-height:1.5; color:#fff; text-shadow:0 2px 9px #000; pointer-events:none; }
+    .frame .error { display:none; padding:65px 20px; text-align:center; color:var(--muted); font-size:12px; line-height:1.6; }
+    .frame.failed img { display:none; }
+    .frame.failed .error { display:block; }
+    .empty { min-height:calc(100svh - var(--bar)); display:grid; place-items:center; padding:32px; text-align:center; color:#b5b5b5; font-size:14px; line-height:1.8; }
+    .empty[hidden] { display:none; }
+    .empty code { color:white; }
+
+    /* Simple, professional info page */
+    .info { display:none; min-height:calc(100svh - var(--bar)); padding:clamp(58px,10vw,120px) clamp(22px,9vw,140px); }
+    body.info-open .gallery { display:none; }
+    body.info-open .info { display:block; }
+    .info-kicker { color:var(--muted); font-size:11px; font-weight:bold; letter-spacing:.2em; }
+    .info h1 { margin:30px 0 60px; font-size:clamp(54px,10vw,145px); letter-spacing:-.07em; line-height:.94; }
+    .info h1 span { color:#999; }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; max-width:950px; padding-top:30px; border-top:1px solid #ffffff33; }
+    .info-grid p { margin:0; font-size:clamp(17px,2vw,24px); line-height:1.55; }
+    .info-links { display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
+    .info-links a { padding-bottom:5px; border-bottom:1px solid #ffffff55; font-size:14px; }
+    .info-footer { margin-top:110px; border-top:1px solid #ffffff33; padding-top:18px; display:flex; justify-content:space-between; gap:15px; color:var(--muted); font-size:10px; letter-spacing:.1em; }
+
+    /* Tap any image to see original composition */
+    .lightbox { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; background:#030303; padding:54px 54px 64px; }
+    .lightbox.open { display:flex; }
+    .lightbox img { display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+    .lightbox button { position:absolute; display:grid; place-items:center; width:42px; height:42px; background:#121212d9; color:white; border:1px solid #ffffff55; }
+    .close-button { right:15px; top:14px; }
+    .previous-button { left:12px; top:50%; transform:translateY(-50%); }
+    .next-button { right:12px; top:50%; transform:translateY(-50%); }
+    .lightbox-counter { position:absolute; left:20px; bottom:17px; font-size:11px; letter-spacing:.15em; }
+    body.lightbox-open { overflow:hidden; }
+
+    @media(max-width:700px) {
+      :root { --bar:60px; }
+      .header { padding:0 16px; }
+      .logo { font-size:23px; }
+      .navigation { display:none; }
+      .mobile-actions { display:flex; }
+      .frame .photo-count { left:14px; bottom:12px; font-size:9px; }
+      .info-grid { grid-template-columns:1fr; gap:32px; }
+      .info-footer { flex-direction:column; margin-top:80px; }
+      .lightbox { padding:62px 8px 75px; }
+      .previous-button,.next-button { top:auto; bottom:14px; transform:none; }
+      .previous-button { left:auto; right:69px; }
+      .next-button { right:14px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; animation:none!important; } }
+  </style>
 </head>
 <body>
-<header class="header">
-  <a class="logo" href="#home" data-page="home">SHIVANG <span>FILMS.</span></a>
-  <nav class="nav" aria-label="Main navigation">
-    <a href="#home" data-page="home">Home</a>
-    <a href="#work" data-page="work">Work</a>
-    <a href="#info" data-page="info">Info</a>
-    <a class="insta" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="18" cy="6.3" r=".8" stroke="none" fill="currentColor"/></svg></a>
-  </nav>
-  <div class="mobile-actions">
-    <a class="insta" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="18" cy="6.3" r=".8" stroke="none" fill="currentColor"/></svg></a>
-    <button class="menu-btn" id="menuButton" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg></button>
-  </div>
-</header>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <a href="#home" data-page="home">Home</a><a href="#work" data-page="work">Work</a><a href="#info" data-page="info">Info</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-</nav>
-<main>
-  <section id="work" class="gallery" aria-label="Photography portfolio">
-    <div id="cycles"></div>
-    <div id="empty" class="empty"><p>No photographs yet. Upload JPG, PNG, WebP or AVIF images into the <code>photos/</code> folder on GitHub to populate this gallery automatically.</p></div>
-  </section>
-  <section id="info" class="info" aria-label="Information and contact">
-    <small>SHIVANG FILMS / INFORMATION</small>
-    <h1>Visuals.<br><span>By Shivang.</span></h1>
-    <div class="info-content">
-      <p>Photography, films and visual stories. Available for creative projects and collaborations.</p>
-      <div class="info-links"><a href="mailto:shimmu.017@gmail.com">Email — shimmu.017@gmail.com ↗</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram — @shivang.film ↗</a><a href="#work" data-page="work">View Work ↗</a></div>
+  <header class="header">
+    <a class="logo" href="#home" data-page>SHIVANG <span>FILMS.</span></a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="#home" data-page>Home</a>
+      <a href="#work" data-page>Work</a>
+      <a href="#info" data-page>Info</a>
+      <a class="instagram" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+    <div class="mobile-actions">
+      <a class="instagram" href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg></a>
+      <button class="menu-button" id="menuButton" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 8h18 M3 16h18"/></svg></button>
     </div>
-    <footer><span>SHIVANG FILMS © <span id="year">2026</span></span><span>PHOTOGRAPHY &amp; VISUAL STORIES</span></footer>
-  </section>
-</main>
-<div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
-  <button class="close" id="close" aria-label="Close">✕</button><button class="prev" id="prev" aria-label="Previous photo">←</button><img id="bigImage" alt="Selected photograph"><button class="next" id="next" aria-label="Next photo">→</button><span class="count" id="viewerCount"></span>
-</div>
-<script>
-// Jekyll finds all photos automatically at build time. Alphabetical filenames control the order.
-const photos = [
-{% assign sorted_photos = site.static_files | sort: 'path' %}
-{% for photo in sorted_photos %}
-  {% assign ext = photo.extname | downcase %}
-  {% if photo.path contains '/photos/' %}
-    {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' or ext == '.avif' %}
-      { src: {{ photo.path | relative_url | jsonify }}, name: {{ photo.basename | replace: '-', ' ' | replace: '_', ' ' | jsonify }} },
-    {% endif %}
-  {% endif %}
-{% endfor %}
-];
-const wrap=document.getElementById('cycles'), empty=document.getElementById('empty');
-const viewer=document.getElementById('viewer'), big=document.getElementById('bigImage'), counter=document.getElementById('viewerCount');
-const menu=document.getElementById('menuButton');
-const pad=n=>String(n).padStart(2,'0');
-let active=0, busy=false, previousFocus=null;
-function createFrame(photo,index,copy){
-  const el=document.createElement('article');el.className='frame';
-  const image=document.createElement('img');image.src=photo.src;image.alt=photo.name||'Photograph';image.decoding='async';image.loading=(copy===0&&index===0)?'eager':'lazy';if(copy===0&&index===0)image.fetchPriority='high';
-  image.addEventListener('error',()=>el.classList.add('failed'));
-  const error=document.createElement('span');error.className='bad-photo';error.textContent='This photograph could not be loaded.';
-  const open=document.createElement('button');open.type='button';open.textContent='View photograph';open.setAttribute('aria-label','View photograph '+(index+1)+' fullscreen');open.addEventListener('click',()=>show(index));
-  const details=document.createElement('div');details.className='frame-details';
-  const number=document.createElement('span');number.textContent=pad(index+1)+' / '+pad(photos.length);
-  const hint=document.createElement('span');hint.className='instruction';hint.textContent=index===0?'SCROLL TO EXPLORE ↓':'TAP TO VIEW ↗';
-  details.append(number,hint);el.append(image,error,open,details);return el;
-}
-if(photos.length){
-  empty.style.display='none';
-  for(let i=0;i<3;i++){
-    const cycle=document.createElement('div');cycle.className='cycle';
-    photos.forEach((photo,index)=>cycle.append(createFrame(photo,index,i)));
-    wrap.append(cycle);
-  }
-}else{empty.style.display='grid';}
-// The page loops by moving the scroll position between identical copies.
-// DOM and image count stay constant, so memory doesn't grow forever.
-let ticking=false;
-window.addEventListener('scroll',()=>{
-  if(ticking)return;ticking=true;
-  requestAnimationFrame(()=>{
-    ticking=false;
-    if(busy||!photos.length||document.body.classList.contains('info-open'))return;
-    const second=wrap.children[1],third=wrap.children[2];
-    if(!second||!third)return;
-    const start2=second.getBoundingClientRect().top+window.scrollY;
-    const start3=third.getBoundingClientRect().top+window.scrollY;
-    if(window.scrollY>=start3-window.innerHeight*.3){
-      busy=true;
-      window.scrollTo({top:window.scrollY-(start3-start2),behavior:'instant'});
-      requestAnimationFrame(()=>busy=false);
+  </header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="#home" data-page>Home</a><a href="#work" data-page>Work</a><a href="#info" data-page>Info</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></nav>
+
+  <main id="home">
+    <section class="gallery" id="work" aria-label="Photography gallery">
+      <div id="cycles"></div>
+      <div class="empty" id="empty" hidden><p>Upload your photographs to the <code>photos/</code> folder in GitHub. They will appear here automatically.</p></div>
+    </section>
+    <section class="info" id="info">
+      <div class="info-kicker">SHIVANG FILMS / INFORMATION</div>
+      <h1>Visuals.<br><span>By Shivang.</span></h1>
+      <div class="info-grid">
+        <p>Photography, films and visual stories. Available for creative projects and collaborations.</p>
+        <div class="info-links"><a href="mailto:shimmu.017@gmail.com">Email ↗</a><a href="https://www.instagram.com/shivang.film/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#work" data-page>View Work ↗</a></div>
+      </div>
+      <div class="info-footer"><span>SHIVANG FILMS © <span id="year">2026</span></span><span>PHOTOGRAPHY & VISUAL STORIES</span></div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer" aria-hidden="true">
+    <button class="close-button" id="close" aria-label="Close photograph">✕</button>
+    <button class="previous-button" id="prev" aria-label="Previous photograph">←</button>
+    <img id="largeImage" alt="Selected photograph">
+    <button class="next-button" id="next" aria-label="Next photograph">→</button>
+    <span class="lightbox-counter" id="counter"></span>
+  </div>
+
+  <script>
+    // Jekyll automatically lists images from GitHub's photos/ folder.
+    // Rename images to 01-photo.jpg, 02-photo.jpg, etc. to set gallery order.
+    const photos = [
+      {% assign sorted_photos = site.static_files | sort: 'path' %}
+      {% for photo in sorted_photos %}
+        {% assign ext = photo.extname | downcase %}
+        {% if photo.path contains '/photos/' %}
+          {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' or ext == '.avif' %}
+            { src: {{ photo.path | relative_url | jsonify }}, name: {{ photo.basename | replace: '-' , ' ' | replace: '_' , ' ' | jsonify }} },
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    ];
+
+    const wrap = document.getElementById('cycles');
+    const empty = document.getElementById('empty');
+    const lightbox = document.getElementById('lightbox');
+    const largeImage = document.getElementById('largeImage');
+    const counter = document.getElementById('counter');
+    const menuButton = document.getElementById('menuButton');
+    const format = n => String(n).padStart(2, '0');
+    let active = 0;
+    let resettingScroll = false;
+    let previousFocus = null;
+
+    function createFrame(photo, index, cycleNumber) {
+      const frame = document.createElement('article');
+      frame.className = 'frame';
+      const image = document.createElement('img');
+      image.src = photo.src;
+      image.alt = photo.name || 'Photograph';
+      image.decoding = 'async';
+      image.loading = cycleNumber === 0 && index === 0 ? 'eager' : 'lazy';
+      if (cycleNumber === 0 && index === 0) image.fetchPriority = 'high';
+      image.addEventListener('error', () => frame.classList.add('failed'));
+      const error = document.createElement('div');
+      error.className = 'error';
+      error.textContent = 'Photograph could not be loaded.';
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'photo-button';
+      button.textContent = 'Open photograph';
+      button.setAttribute('aria-label', 'Open photograph ' + format(index + 1) + ' fullscreen');
+      button.addEventListener('click', () => showPhoto(index));
+      const number = document.createElement('span');
+      number.className = 'photo-count';
+      number.textContent = format(index + 1) + ' / ' + format(photos.length);
+      frame.append(image, error, button, number);
+      return frame;
     }
-  });
-},{passive:true});
-function closeMenu(){document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');}
-menu.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));});
-document.addEventListener('click',e=>{if(!e.target.closest('.mobile-menu,.menu-btn'))closeMenu();});
-function route(){
-  closeMenu();
-  const info=location.hash==='#info';document.body.classList.toggle('info-open',info);
-  window.scrollTo({top:0,behavior:'instant'});
-}
-window.addEventListener('hashchange',route);
-document.querySelectorAll('[data-page]').forEach(link=>link.addEventListener('click',e=>{if(location.hash===link.getAttribute('href')){e.preventDefault();route();}}));
-route();
-function setViewer(){big.src=photos[active].src;big.alt=photos[active].name;counter.textContent=pad(active+1)+' / '+pad(photos.length);}
-function show(index){if(!photos.length)return;active=(index+photos.length)%photos.length;previousFocus=document.activeElement;setViewer();viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('viewer-open');document.getElementById('close').focus();}
-function hide(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');big.removeAttribute('src');document.body.classList.remove('viewer-open');if(previousFocus&&previousFocus.isConnected)previousFocus.focus();}
-function move(n){active=(active+n+photos.length)%photos.length;setViewer();}
-document.getElementById('close').addEventListener('click',hide);
-document.getElementById('prev').addEventListener('click',()=>move(-1));
-document.getElementById('next').addEventListener('click',()=>move(1));
-viewer.addEventListener('click',e=>{if(e.target===viewer)hide();});
-document.addEventListener('keydown',e=>{
-  if(viewer.classList.contains('open')){
-    if(e.key==='Escape')hide();if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1);
-    if(e.key==='Tab'){
-      const buttons=[document.getElementById('close'),document.getElementById('prev'),document.getElementById('next')];const i=buttons.indexOf(document.activeElement);
-      if(e.shiftKey&&i===0){e.preventDefault();buttons[2].focus();}else if(!e.shiftKey&&i===2){e.preventDefault();buttons[0].focus();}
+
+    function renderCycle(number) {
+      const cycle = document.createElement('div');
+      cycle.className = 'cycle';
+      photos.forEach((photo, index) => cycle.append(createFrame(photo, index, number)));
+      return cycle;
     }
-  }else if(e.key==='Escape')closeMenu();
-});
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+
+    if (photos.length) {
+      // Three fixed copies: infinite scrolling without growing the page forever.
+      for (let n = 0; n < 3; n++) wrap.append(renderCycle(n));
+    } else {
+      empty.hidden = false;
+    }
+
+    // Photos of any aspect ratio use their natural heights. Reset only when
+    // the visitor reaches the third copy, preserving their position inside it.
+    let scrollQueued = false;
+    window.addEventListener('scroll', () => {
+      if (scrollQueued) return;
+      scrollQueued = true;
+      requestAnimationFrame(() => {
+        scrollQueued = false;
+        if (resettingScroll || document.body.classList.contains('info-open') || !photos.length) return;
+        const middle = wrap.children[1];
+        const last = wrap.children[2];
+        if (!middle || !last) return;
+        const middleTop = middle.getBoundingClientRect().top + window.scrollY;
+        const lastTop = last.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY >= lastTop - window.innerHeight * .25) {
+          resettingScroll = true;
+          window.scrollTo({ top: window.scrollY - (lastTop - middleTop), behavior: 'instant' });
+          requestAnimationFrame(() => { resettingScroll = false; });
+        }
+      });
+    }, { passive: true });
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+    menuButton.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.mobile-menu, .menu-button')) closeMenu();
+    });
+    function route() {
+      closeMenu();
+      document.body.classList.toggle('info-open', location.hash === '#info');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    window.addEventListener('hashchange', route);
+    document.querySelectorAll('[data-page]').forEach(link => link.addEventListener('click', e => {
+      if (location.hash === link.getAttribute('href')) { e.preventDefault(); route(); }
+    }));
+    route();
+
+    function setPhoto() {
+      largeImage.src = photos[active].src;
+      largeImage.alt = photos[active].name;
+      counter.textContent = format(active + 1) + ' / ' + format(photos.length);
+    }
+    function showPhoto(index) {
+      if (!photos.length) return;
+      active = index;
+      previousFocus = document.activeElement;
+      setPhoto();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      document.getElementById('close').focus();
+    }
+    function hidePhoto() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      largeImage.removeAttribute('src');
+      if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+    }
+    function movePhoto(step) {
+      active = (active + step + photos.length) % photos.length;
+      setPhoto();
+    }
+    document.getElementById('close').addEventListener('click', hidePhoto);
+    document.getElementById('prev').addEventListener('click', () => movePhoto(-1));
+    document.getElementById('next').addEventListener('click', () => movePhoto(1));
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) hidePhoto(); });
+    document.addEventListener('keydown', event => {
+      if (lightbox.classList.contains('open')) {
+        if (event.key === 'Escape') hidePhoto();
+        if (event.key === 'ArrowLeft') movePhoto(-1);
+        if (event.key === 'ArrowRight') movePhoto(1);
+      } else if (event.key === 'Escape') closeMenu();
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
